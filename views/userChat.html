@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Room - Home</title>
+		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap4.min.css">
+		<link rel="stylesheet" href="../css/icons.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+		<script type="text/javascript" src="../libraries/jquery-3.min.js"></script>
+		<script type="text/javascript" src="../libraries/popper4.min.js"></script>
+	</head>
+	<body>
+		<div id="chat-room-container" class="china-chat-modal new-chat-design user-chat" tabindex="-1" role="dialog" aria-labelledby="chatRoomModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<div class="left-side-icons">
+							<i class="fas fa-circle green"></i>
+							<i class="user-name"></i>
+						</div>
+						<div class="right-side-icons">
+							<button type="button" class="close chat-close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="modal-body">
+						<div class="communication-area">
+							<div class="messages">&nbsp;</div>
+							<div class="text-box">
+								<input class="message" type="text" />
+								<button class="message-send">Send</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../libraries/bootstrap4.min.js"></script>
+	<!-- <script type="text/javascript" src="../libraries/socket.io.js"></script> -->
+	<script type="text/javascript" src="../scripts/Variables.js"></script>
+	<script type="text/javascript" src="../scripts/Render.js"></script>
+
+	<script type="text/javascript" src="../scripts/chromeMessages.js"></script>
+	<script type="text/javascript" src="../scripts/Storage.js"></script>
+	<script type="text/javascript" src="../scripts/Request.js"></script>
+	<script type="text/javascript" src="../scripts/EventListeners.js"></script>
+	<script type="text/javascript" src="../scripts/FrameEvents.js"></script>
+	<script type="text/javascript" src="../scripts/UserChatMessage.js"></script>
+	<!-- <script type="text/javascript" src="../scripts/Socket.js"></script> -->
+</html>

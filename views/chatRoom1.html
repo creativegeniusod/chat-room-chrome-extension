@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Room - Home</title>
+		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap4.min.css">
+		<link rel="stylesheet" href="../css/icons.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+		<script type="text/javascript" src="../libraries/jquery-3.min.js"></script>
+		<script type="text/javascript" src="../libraries/popper4.min.js"></script>
+	</head>
+	<body>
+		<div id="chat-room-container" class="china-chat-modal new-chat-design" tabindex="-1" role="dialog" aria-labelledby="chatRoomModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<div class="left-side-icons">
+							<a href="#"><img src="../images/a-icon.png"></a>
+							<a href="#"><img src="../images/chat-icon.png"></a>
+						</div>
+						<div class="right-side-icons">
+							<a href="#"><img src="../images/profile.png"></a>
+							<a href="#" class="user-logout"><i class="fas fa-sign-out-alt"></i></a>
+							<button type="button" class="close popup-close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="modal-header-sub">
+						<div class="room-heading">
+							<a href="chatRoom1.html" class="list-rooms">Rooms</a>
+						</div>
+						<div class="room-heading">
+							<p class="room-info">Active Users</p>
+							<p class="room-name" style="display: none;">
+								<input type="text" class="room-name-input" placeholder="Room Name" />
+							</p>
+							<a href="#" class="create-new-room">NEW ROOM</a>
+							<a href="#" class="create-room-submit" style="display: none;">Create</a>
+							<a href="#" class="form-reset" style="display: none;">
+								<i class="fa fa-close"></i> Close
+							</a>
+						</div>
+
+					</div>
+
+					<div class="modal-body room-details">
+						<div class="room-descriptions">
+							<table id="rooms-list" class="rooms-list">
+								<tr>
+									<th>ROOM</th>
+									<th>DESCRIPTION</th>
+									<th>CREATED BY</th>
+									<th>ACTIVE USERS</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../libraries/bootstrap4.min.js"></script>
+	<script type="text/javascript" src="../libraries/socket.io.js"></script>
+	<script type="text/javascript" src="../scripts/Variables.js"></script>
+	<script type="text/javascript" src="../scripts/Render.js"></script>
+
+	<script type="text/javascript" src="../scripts/chromeMessages.js"></script>
+	<script type="text/javascript" src="../scripts/Storage.js"></script>
+	<script type="text/javascript" src="../scripts/Request.js"></script>
+	<script type="text/javascript" src="../scripts/EventListeners.js"></script>
+	<script type="text/javascript" src="../scripts/FrameEvents.js"></script>
+	<script type="text/javascript" src="../scripts/Socket.js"></script>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Room - Home</title>
+		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap4.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+		<script type="text/javascript" src="../libraries/jquery-3.min.js"></script>
+		<script type="text/javascript" src="../libraries/popper4.min.js"></script>
+	</head>
+	<body>
+		
+		<!-- Modal -->
+	    <div id="chat-room-container" class="china-chat-modal new-chat-design" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	      <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	          	<div class="modal-header">
+					<div class="left-side-icons">
+						<a href="#"><img src="../images/a-icon.png"></a>
+						<a href="#"><img src="../images/chat-icon.png"></a>
+					</div>
+		            <div class="right-side-icons">
+		              <a href="#"><img src="../images/profile.png"></a>
+		              	<button type="button" class="close popup-close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+		            </div>
+	          	</div>
+	          <div class="modal-header-sub chat-box">
+	            <div class="modal-body">
+	              <div class="tab">
+	                <button class="tablinks" onclick="openCity(event, 'London')">NYTIMES.COM</button>
+	                <button class="tablinks" onclick="openCity(event, 'Paris')">PAGE</button>
+	                <button class="tablinks" onclick="openCity(event, 'Tokyo')">+NEW ROOM<img src="../images/Chat-1.png"/></a></button>
+	              </div>
+
+	              <!-- <div id="London" class="tabcontent">
+	                <h3>Paris</h3>
+	                <p>Paris is the capital of France.</p> 
+	              </div> -->
+
+	              <div id="Paris" class="tabcontent">
+	                <h3>AUGUST 5 1:55PM</h3>
+	                <div class="profile-chat">
+	                  <label><a href="#"><img src="../images/browser-profile.png"></a></label>
+	                  <p class="client-name">John Thomas</p>
+	                  <p class="full-message">
+	                    Lorem Ipsume is the best dummy text for using.
+	                  </p>
+	                  <p class="full-message">
+	                    Lorem Ipsume is the best dummy text for using.
+	                  </p>
+	                  <p class="time-of-message">
+	                    1:56PM
+	                  </p>
+	                </div>
+	                <div class="user-chat">
+	                  <p class="client-name">You</p>
+	                  <label><a href="#"><img src="../images/browser-profile.png"></a></label>
+	                  <p class="full-user-message">
+	                    Lorem Ipsume is the best dummy text for using.
+	                  </p>
+	                </div>
+	                <div class="profile-chat">
+	                  <label><a href="#"><img src="../images/browser-profile.png"></a></label>
+	                  <p class="client-name">John Thomas</p>
+	                  <p class="full-message">
+	                    Lorem Ipsume is the best dummy text for using.
+	                  </p>
+	                  <p class="full-message">
+	                    Lorem Ipsume is the best dummy text for using.
+	                  </p>
+	                  <p class="time-of-message">
+	                    1:56PM
+	                  </p>
+	                </div>
+	              </div>
+
+	              <!-- <div id="Tokyo" class="tabcontent">
+	                <h3>Tokyo</h3>
+	                <p>Tokyo is the capital of Japan.</p>
+	              </div> -->
+	            </div>
+	          </div>
+	          <div class="modal-footer new-chatting-page">
+	            <div class="emoji-section">
+	              <img src="../images/smile.png">
+	            </div>
+
+	            <div class="text-content-with-media">
+	              <div class="text-area">
+	                <textarea name="comment" form="usrform"></textarea>
+	                <!-- <input type="text" id="text" name="text"> -->
+	              </div>
+	              <img src="../images/smile.png">
+	            </div>
+
+	            <div class="emoji-section">
+	              <img src="../images/send-btn.png">
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	</body>
+	<script type="text/javascript" src="../libraries/bootstrap4.min.js"></script>
+	<script type="text/javascript" src="../scripts/Variables.js"></script>
+
+	<script type="text/javascript" src="../scripts/chromeMessages.js"></script>
+	<script type="text/javascript" src="../scripts/Request.js"></script>
+	<script type="text/javascript" src="../scripts/EventListeners.js"></script>
+	<script type="text/javascript" src="../scripts/FrameEvents.js"></script>
+</html>

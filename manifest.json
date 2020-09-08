@@ -1,0 +1,60 @@
+{
+	"name": "Chat Room",
+	"description": "Open a chat Plugin on webpage.",
+	"version": "0.0.1",
+	"default_locale": "en",
+	"icons": {
+		"16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"16": "images/icon16.png",
+			"24": "images/icon24.png",
+			"32": "images/icon32.png"
+		}
+	},
+	"author": "A. B. Me",
+	"background": {
+		"scripts": [
+			"scripts/Storage.js",
+			"scripts/User.js",
+			"scripts/Rooms.js",
+			"scripts/chromeMessages.js",
+			"scripts/runningProcessListeners.js",
+			"scripts/alwaysRunningProcess.js"
+		],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"css": ["css/main_styles.css"],
+			"js": [
+				"libraries/jquery-3.min.js",
+
+				"scripts/EventListeners.js",
+				"scripts/User.js",
+				"scripts/Render.js",
+				"scripts/Remove.js",
+				"scripts/ContentMessageListener.js",
+				"scripts/pluginMain.js",
+				"scripts/chromeMessages.js"
+			]
+		}
+	],
+	"web_accessible_resources": [
+		"views/*",
+		"images/*",
+		"libraries/*",
+		"css/*"
+	],
+	"permissions": [
+		"tabs",
+		"activeTab",
+		"storage"
+	],
+	"content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'",
+	"manifest_version": 2
+}
