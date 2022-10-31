@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Room - Home</title>
+		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap4.min.css">
+		<link rel="stylesheet" href="../css/icons.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+		<script type="text/javascript" src="../libraries/jquery-3.min.js"></script>
+		<script type="text/javascript" src="../libraries/popper4.min.js"></script>
+	</head>
+	<body>
+		<div id="chat-room-container" class="china-chat-modal new-chat-design" tabindex="-1" role="dialog" aria-labelledby="chatRoomModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content edit-user">
+
+					<div class="modal-header">
+						<div class="left-side-icons">
+							<a href="#" id="edit-profile-window-back">
+								<span aria-hidden="true"><i class="fa fa-home" aria-hidden="true"></i></span>
+							</a>
+						</div>
+						<div class="right-side-icons ">
+							<a href="#" class="user-logout"><i class="fas fa-sign-out-alt"></i></a>
+						</div>
+					</div>
+
+					<div class="modal-header-sub">
+						<div class="room-heading">
+							<p class="room-info">Edit Profile</p>
+						</div>
+					</div>
+
+					<div class="modal-body edit-profile-body">
+
+						<!-- List Users -->
+						<div class="users-descriptions">
+							<label>Username:
+								<input type="text" class="user-username form-control" data-current-val="" name="username" placeholder="username" style="display: none;">
+							</label>
+
+							<label>Email:
+								<input type="text" class="user-email form-control" data-current-val="" name="username" placeholder="email" disabled="disabled"  data-toggle="tooltip" data-placement="bottom" title="">
+							</label>
+
+							<div class="change-password-section" style="display: none;">
+								<label>Old Password:
+									<input type="password" class="user-pwd-o form-control" name="username" placeholder="Old Password">
+								</label>
+
+								<label>New Password:
+									<input type="password" class="user-pwd-n form-control" name="username" placeholder="New Password">
+								</label>
+
+								<label>Confirm New Password:
+									<input type="password" class="user-pwd-nc form-control" name="username" placeholder="Confirm New Password">
+								</label>
+							</div>
+
+							<div>&nbsp;</div>
+							<div class="edit-profile-messages">
+								<span class="message alert" style="display: none;" role="alert">
+									<i></i>
+								</span>
+								<div>&nbsp;</div>
+							</div>
+							<div class="edit-profile-action-buttons">
+								<button class="save-changes">Save Changes</button>
+								<button class="cancel">Cancel</button>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../libraries/bootstrap4.min.js"></script>
+	<script type="text/javascript" src="../scripts/Storage.js"></script>
+	<script type="text/javascript" src="../scripts/ExtensionState.js"></script>
+	<script type="text/javascript" src="../scripts/Variables.js"></script>
+	<script type="text/javascript" src="../scripts/Render.js"></script>
+
+	<script type="text/javascript" src="../scripts/chromeMessages.js"></script>	
+	<script type="text/javascript" src="../scripts/Rooms.js"></script>
+	<script type="text/javascript" src="../scripts/User.js"></script>
+	<script type="text/javascript" src="../scripts/Helper.js"></script>
+	<script type="text/javascript" src="../scripts/Request.js"></script>
+	<script type="text/javascript" src="../scripts/EventListeners.js"></script>
+	<script type="text/javascript" src="../scripts/FrameEvents.js"></script>
+</html>

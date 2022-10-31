@@ -5,7 +5,7 @@ Storage = {
 	/**
 	* Chrome LocalStorage set.
 	*/
-	setLocal: (key, value) => {		
+	setLocal: (key, value) => {
 		chrome.storage.local.set( {[key]: JSON.stringify(value)} );
 	},
 	
@@ -24,7 +24,7 @@ Storage = {
 				}
 				resolve(response);
 			});
-		});		
+		});
 	},
 
 

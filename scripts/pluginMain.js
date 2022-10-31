@@ -1,3 +1,5 @@
+var pageTitle = '';
+
 /**
 * Recieve messages in Content.
 */
@@ -10,3 +12,7 @@ chrome.runtime.onMessage.addListener(MessageListeners.Reciever);
 * Destroys the modal.
 */
 $(document).on(`click`, `#chat-room-container #chatRoomModal .close`, EventListeners.showChatRoomClose);
+
+
+
+$(document).ready(EventListeners.pageReady);

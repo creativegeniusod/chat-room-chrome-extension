@@ -1,31 +1,38 @@
 {
-	"name": "Chat Room",
+	"name": "Afrometa",
 	"description": "Open a chat Plugin on webpage.",
-	"version": "0.0.1",
+	"version": "0.0.32",
 	"default_locale": "en",
 	"icons": {
-		"16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
+		"16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
 	},
 	"browser_action": {
 		"default_icon": {
-			"16": "images/icon16.png",
-			"24": "images/icon24.png",
-			"32": "images/icon32.png"
+			"16": "images/icon.png",
+			"24": "images/icon.png",
+			"32": "images/icon.png"
 		}
 	},
 	"author": "A. B. Me",
 	"background": {
 		"scripts": [
+			"libraries/jquery-3.min.js",
+			"scripts/Request.js",
 			"scripts/Storage.js",
 			"scripts/User.js",
 			"scripts/Rooms.js",
+			"scripts/ExtensionState.js",
 			"scripts/chromeMessages.js",
 			"scripts/runningProcessListeners.js",
-			"scripts/alwaysRunningProcess.js"
+			"scripts/alwaysRunningProcess.js",
+			"scripts/Variables.js",
+			"scripts/Messages.js",
+			"scripts/Database.js",
+			"scripts/Vote.js"
 		],
-		"persistent": false
+		"persistent": true
 	},
 	"content_scripts": [
 		{
@@ -33,14 +40,23 @@
 			"css": ["css/main_styles.css"],
 			"js": [
 				"libraries/jquery-3.min.js",
+				"libraries/sweetalert.min.js",
 
 				"scripts/EventListeners.js",
+				"scripts/ExtensionState.js",
 				"scripts/User.js",
+				"scripts/Storage.js",
+				"scripts/Rooms.js",
 				"scripts/Render.js",
 				"scripts/Remove.js",
+				"scripts/Request.js",
+				"scripts/Vote.js",
+				"scripts/Helper.js",
 				"scripts/ContentMessageListener.js",
 				"scripts/pluginMain.js",
-				"scripts/chromeMessages.js"
+				"scripts/chromeMessages.js",
+				"scripts/DragNDrop.js",
+				"scripts/Variables.js"
 			]
 		}
 	],
@@ -53,7 +69,9 @@
 	"permissions": [
 		"tabs",
 		"activeTab",
-		"storage"
+		"storage",
+		"alarms",
+		"contextMenus"
 	],
 	"content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'",
 	"manifest_version": 2

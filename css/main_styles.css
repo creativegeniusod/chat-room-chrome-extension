@@ -1,19 +1,132 @@
-#chat-room-frame {
-	width: 300px;
-	height: 400px;
+#chat-room-frame-container {
+	width: 400px;
+	height: 500px;
 	z-index: 99999;
-	position: absolute;
+	right: 7px;
+	bottom: 20px;
+	border: 0;
+	position: fixed;
+	background-color: transparent;
+}
+#chat-room-frame-mover {
+	z-index: 999991;
+	height: 15px;
+	margin-top: -15px;
+	/*background-color: #ad0808;*/
+	background-color: grey;
+	cursor: move;
+}
+
+#chat-room-frame {
+	width: 400px;
+	height: 500px;
+	z-index: 99999;
+	/*position: fixed;*/
 	right: 0;
 	bottom: 0;
 	border: 0;
 }
 
 .user-chat {
-	width: 300px;
-	height: 400px;
+	width: 400px;
+	height: 500px;
 	z-index: 99999;
-	position: absolute;
+	position: relative;
 	/*right: 0;*/
 	bottom: 0;
 	border: 0;
+}
+
+.room-chat-iframe {
+	width: 400px;
+	height: 500px;
+	z-index: 99999;
+	position: fixed;
+	/*right: 0;*/
+	bottom: 0;
+	border: 0;
+}
+
+#edit-user-frame {
+	width: 400px;
+	height: 500px;
+	z-index: 99999;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	border: 0;
+}
+
+
+
+.chat-room-open-icon {
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    left: auto;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.launcher-func-icons {
+	/*position: absolute;
+	bottom: 55px;
+	right: 80px;*/
+}
+.hide-launcher-icon {
+	position: fixed;
+	bottom: 62px;
+	right: 75px;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: normal;
+}
+.chat-icon {
+	position: fixed;
+	bottom: 68px;
+	right: 38px;
+	cursor: pointer;
+}
+.vote-icon-plus {
+	position: fixed;
+	bottom: 45px;
+	right: 10px;
+	cursor: pointer;
+}
+.vote-icon-minus {
+	position: fixed;
+	bottom: 14px;
+	right: 10px;
+	cursor: pointer;
+}
+.page-score {
+	position: fixed;
+	bottom: 32px;
+	right: 80px;
+	font-size: 15px;
+	border-radius: 2px;
+	padding: 2px;
+	font-weight: bold;
+}
+.page-score.border-red {
+	border: 2px solid #de1414;
+}
+.page-score.border-green {
+	border: 2px solid #4bc717;
+}
+.page-score.border-yellow {
+	border: 2px solid #f9de1d;
+}
+
+/* 07-Jan-2021 */
+.launcher-message .message-notification {
+	position: fixed;
+	bottom: 95px;
+	right: 10px;
+	color: red;
+	font-size: 11px;
 }

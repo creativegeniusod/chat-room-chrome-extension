@@ -2,19 +2,19 @@ var Request;
 
 Request = {
 
-	get: async (url) => {
+	get: async (url, headers={}) => {
 		return await $.ajax({
 			url: url,
 			type: `GET`,
-			headers: {},
+			headers: headers,
 		});
 	},
 
-	post: async (url, data={}) => {
+	post: async (url, data={}, headers={}) => {
 		return await $.ajax({
 			url: url,
 			type: `POST`,
-			headers: {},
+			headers: headers,
 			data: data
 		});
 	},

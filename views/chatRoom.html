@@ -4,24 +4,30 @@
 		<title>Chat Room - Home</title>
 		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap4.min.css">
 		<link rel="stylesheet" href="../css/icons.css">
+		<link rel="stylesheet" href="../libraries/dataTables.bootstrap4.min.css">
 
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 		<script type="text/javascript" src="../libraries/jquery-3.min.js"></script>
 		<script type="text/javascript" src="../libraries/popper4.min.js"></script>
+		<script type="text/javascript" src="../libraries/bootstrap4.min.js"></script>
+		<script type="text/javascript" src="../libraries/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="../libraries/dataTables.bootstrap4.min.js"></script>
 	</head>
 	<body>
-		<div id="chat-room-container" class="china-chat-modal new-chat-design" tabindex="-1" role="dialog" aria-labelledby="chatRoomModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+		<div id="chat-room-container" class="china-chat-modal new-chat-design" tabindex="-1">
+			<div class="dialog">
+				<div class="content">
 
-					<div class="modal-header">
-						<div class="left-side-icons">
-							<a href="#"><img src="../images/a-icon.png"></a>
-							<a href="#"><img src="../images/chat-icon.png"></a>
+					<div class="header">
+						<div class="top-bar left-side-icons">
+							<a href="#" class="icon-show-chat-rooms active-icon"><img src="../images/a-icon.png"></a>
+							
+							<a href="#" class="icon-chat-tab"><img src="../images/chat-icon.png"></a>
 						</div>
 						<div class="right-side-icons">
-							<a href="#"><img src="../images/profile.png"></a>
+							<a href="#" class="edit-profile"><img src="../images/profile.png"></a>
+							<a href="#" class="refresh"><img src="../images/refresh_1.png"></a>
 							<a href="#" class="user-logout"><i class="fas fa-sign-out-alt"></i></a>
 							<button type="button" id="main_frame_window" class="close popup-close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -29,36 +35,141 @@
 						</div>
 					</div>
 
-					<div class="modal-header-sub">
-						<div class="room-heading">
-							<p class="room-info">Active Users</p>
-							<p class="room-name" style="display: none;">
-								<input type="text" class="room-name-input" placeholder="Room Name" />
-							</p>
-							<a href="#" class="create-new-room">NEW ROOM</a>
-							<a href="#" class="create-room-submit" style="display: none;">Create</a>
-							<a href="#" class="form-reset" style="display: none;">
-								<i class="fa fa-close"></i> Close
+
+					<!-- Subnav items -->
+					<ul class="nav nav-tabs" id="tabs" role="tablist">
+						
+						<li class="nav-item">
+							<a class="nav-link show-rooms active" id="rooms-tab" href="#rooms" role="tab" aria-selected="false">All Rooms</a>
+						</li>
+						<li class="nav-item chat-tab">
+							<a class="nav-link room-chat-tab" id="room-chat-tab" href="#rooms-chat-view" role="tab" aria-selected="false">Rooms</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link site-view" id="site-tab" href="#site-view" role="tab" aria-selected="false">Site Room</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link web-page-view" id="web-page-tab" href="#web-page-view" role="tab" aria-selected="false">Page Room</a>
+						</li>
+						<!-- <li class="nav-item chat-tab">
+							<a class="nav-link show-chat-tab" id="chatting-tab" href="#chat-tab" role="tab" aria-selected="false">Page</a>
+						</li> -->
+						<li class="nav-item">
+							<a class="nav-link list-users" id="users-tab" href="#users" role="tab" aria-selected="true">
+								<img src="../images/Chat-2a.png">
 							</a>
-						</div>
+						</li>
+						<li class="nav-item create-tab-wrapper">
+							<a class="nav-link" id="create-tab" href="#create" data-room-update="false" role="tab" aria-selected="false">New Room</a>
+						</li>
+					</ul>
 
-					</div>
-
-					<div class="modal-body room-details">
-						<div class="tab">
-							<button class="tablinks show-rooms">All ROOMS</button>
-							<button class="tablinks list-users" style="display: none;">List Users</button>
-						</div>
+					<div class="tab-content" id="nav-tabContent">
 
 						<!-- List Users -->
-						<div class="users-descriptions">
-							<table id="users-list" class="online-users"></table>
+						<div class="tab-pane active" id="users" role="tabpanel">
+
+							<!-- Sub Menu -->
+							<ul class="nav nav-tabs users-category" id="online-users-tabs" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link all-online-users active" id="all-users-tab" href="#all-online-users" role="tab" aria-selected="true">All Users</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link same-site-users" id="same-site-tab" href="#same-site-users" role="tab" aria-selected="false">Same Site</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link same-page-users" id="same-page-tab" href="#same-page-users" role="tab" aria-selected="false">Same Page</a>
+								</li>
+							</ul>
+
+							<!-- Sub-menu area. -->
+							<div class="tab-content">
+								<div class="tab-pane users-descriptions active" id="all-online-users" role="tabpanel">
+									<table id="users-list" class="online-users"></table>
+								</div>
+
+								<div class="tab-pane users-descriptions" id="same-site-users">
+									<table id="users-list-same-site" class="online-users-same-site" role="tabpanel"></table>
+								</div>
+
+								<div class="tab-pane users-descriptions" id="same-page-users">
+									<table id="users-list-same-page" class="online-users-same-page" role="tabpanel"></table>
+								</div>
+							</div>
 						</div>
-						
+
+
 						<!-- Show Rooms -->
-						<div class="room-descriptions" style="display: none;">
-							<table id="room-list"></table>
+						<div class="tab-pane" id="rooms" role="tabpanel">
+							<div class="room-descriptions">
+								<table id="room-list">
+									
+								</table>
+							</div>
 						</div>
+
+
+						<!-- Chat Tab -->
+						<div class="tab-pane" id="chat-tab" role="tabpanel">
+							<div class="no-content-view">
+								<center>
+									<img src="../images/hand-stop1.png" />
+									<h4>Nothing to display here. Chat window will appear once you start a conversation with user.</h4>
+								</center>
+							</div>
+						</div>
+
+
+						<!-- Site Tab -->
+						<div class="tab-pane" id="site-view" role="tabpanel">
+							<div class="page-processing" style="display: none;">
+								<i class="fas fa-circle-notch fa-spin fa-w-16 fa-7x"></i>
+								<div class="processing-label">We are loading this view for you. Please wait...</div>
+							</div>
+						</div>
+
+						
+						<!-- Web Page Tab -->
+						<div class="tab-pane" id="web-page-view" role="tabpanel">
+							<div class="page-processing" style="display: none;">
+								<i class="fas fa-circle-notch fa-spin fa-w-16 fa-7x"></i>
+								<div class="processing-label">Loading web page chat. Please wait...</div>
+							</div>
+						</div>
+
+
+						<!-- Custom Rooms chat View -->
+						<div class="tab-pane" id="rooms-chat-view" role="tabpanel">
+							<div class="no-content-view">
+								<center>
+									<img src="../images/hand-stop1.png" />
+									<h4>Please click on Custom Room to see this view.</h4>
+								</center>
+							</div>
+						</div>
+
+
+						<!-- Create Room -->
+						<div class="tab-pane" id="create" role="tabpanel">
+							<form class="new-room-form">
+								<div class="form-group">
+
+									<p class="room-name">
+										<input type="text" class="form-control room-name-input" placeholder="Room Name" />
+									</p>
+									<button class="create-room-submit" data-room-update="false">Create</button>
+									<button class="form-reset">
+										<i class="fa fa-close"></i> Reset
+									</button>
+								</div>
+							</form>
+
+							<!-- Add More users -->
+							<div class="add-more-users">
+								<table id="add-more-users-list"></table>
+							</div>
+						</div>
+
 					</div>
 
 				</div>
@@ -66,16 +177,21 @@
 		</div>
 	</body>
 
-	<script type="text/javascript" src="../libraries/bootstrap4.min.js"></script>
+	
 	<script type="text/javascript" src="../libraries/socket.io.js"></script>
+	<script type="text/javascript" src="../libraries/sweetalert.min.js"></script>
+	<script type="text/javascript" src="../scripts/Storage.js"></script>
+	<script type="text/javascript" src="../scripts/ExtensionState.js"></script>
 	<script type="text/javascript" src="../scripts/Variables.js"></script>
 	<script type="text/javascript" src="../scripts/Render.js"></script>
 
 	<script type="text/javascript" src="../scripts/chromeMessages.js"></script>
-	<script type="text/javascript" src="../scripts/Storage.js"></script>
+	<script type="text/javascript" src="../scripts/Rooms.js"></script>
 	<script type="text/javascript" src="../scripts/Helper.js"></script>
 	<script type="text/javascript" src="../scripts/Request.js"></script>
 	<script type="text/javascript" src="../scripts/EventListeners.js"></script>
 	<script type="text/javascript" src="../scripts/FrameEvents.js"></script>
 	<script type="text/javascript" src="../scripts/Socket.js"></script>
+	<script type="text/javascript" src="../scripts/Database.js"></script>
+	<script type="text/javascript" src="../scripts/Messages.js"></script>
 </html>
