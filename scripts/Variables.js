@@ -24,6 +24,7 @@ call_urls = async () => {
 		db_app_url = `https://api.afrometa.co/`;
 	}
 };
+
 call_urls();
 
 
@@ -32,16 +33,16 @@ call_urls();
 */
 
 // Default Launcher Icon.
-const defaultIcon = `${chrome.runtime.getURL('images/fill-a.png')}`;
+const defaultIcon = `${chrome.runtime.getURL('images/fill-a_new.png')}`;
 
 // icon with chat history = IconWch
-const IconWch = `${chrome.runtime.getURL('images/chat_history.png')}`;
+const IconWch = `${chrome.runtime.getURL('images/chat_history_new.png')}`;
 
 // icon with site has any online users = IconWou
-const IconWou = `${chrome.runtime.getURL('images/active_users.png')}`;
+const IconWou = `${chrome.runtime.getURL('images/active_users_new.png')}`;
 
 // icon with chat hisotry and active users = IconWchnAu
-const IconWchnAu = `${chrome.runtime.getURL('images/active_users_chat_history.png')}`;
+const IconWchnAu = `${chrome.runtime.getURL('images/active_users_chat_history_new.png')}`;
 
 
 // Some useful icons.

@@ -4,12 +4,12 @@ $(document).ready(function() {
 	const url = location.href;
 	const data = url.split('?')[1].replace('data=', '');
 	let newData = atob(data);
-	console.log('web3 login success data: ', newData);
 
+	let username = `${newData.substring(0, 4)}...${newData.substring(newData.length-4, newData.length)}`;
 	User.set({
-		username: `${newData}@wallet`,
-		email: `${newData}@wallet.com`,
-		name: `${newData}@name`
+		username,
+		email: `${username}@wallet.com`,
+		name: `${username}@name`
 	});
 	chrome.runtime.sendMessage({action: `loginSuccessOpenChat`});
 	setTimeout(async () => {

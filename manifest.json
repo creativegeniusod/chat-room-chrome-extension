@@ -1,7 +1,7 @@
 {
-	"name": "Afrometa",
+	"name": "Bonfires",
 	"description": "Open a chat Plugin on webpage.",
-	"version": "0.0.32",
+	"version": "0.0.33",
 	"default_locale": "en",
 	"icons": {
 		"16": "images/icon.png",
