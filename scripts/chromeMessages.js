@@ -1,4 +1,4 @@
-var Message, MessageListeners;
+var Message;
 
 
 const Runtime = chrome.runtime;
@@ -14,7 +14,7 @@ Message = {
 	* Send message from background/popup to Content/Web page.
 	*/
 	sendToWebpage: (sendToTab, data = {}) => {
-		Tabs.sendMessage(sendToTab.id, data, MessageListeners.Handle);
+		chrome.tabs.sendMessage(sendToTab.id, data);
 	},
 
 
@@ -30,9 +30,9 @@ Message = {
 /**
 * Chrome extension sent/recieved message listeners.
 */
-MessageListeners = {
-
-	Handle: (response) => {
-		console.log("message send response: ", response);
-	},
-};
+// MessageListeners = {
+//
+// 	Handle: (response) => {
+// 		console.log("message send response: ", response);
+// 	},
+// };

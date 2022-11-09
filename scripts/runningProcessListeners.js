@@ -444,7 +444,8 @@ pageIconClicked = async (tab, msg_data) => {
 		const headers = {
 			"content-type": "application/json;charset=UTF-8"
 		};
-		Request.post(`${db_app_url}api/v1/user/${user.username}`, JSON.stringify({user: user}), headers)
+		console.log('user', user);
+		Request.post(`${db_app_url}api/v1/search/user`, JSON.stringify({username: user.username}), headers)
 		.then( (data) => {
 			/** Show welcome window. **/
 			Message.sendToWebpage(tab, {
@@ -471,8 +472,8 @@ pageIconClicked = async (tab, msg_data) => {
 */
 OpenAfterLogin = () => {
 	chrome.tabs.query({  active: true, currentWindow: true }, async (tabs) => {
-		console.log('tabs', tabs)
 		const user = await User.get();
+		console.log('tid', tabs[0].id);
 		Message.sendToWebpage(tabs[0], {
 			"action": "showChatWindow",
 			"onSuccessAction": "ShowChatWindow",

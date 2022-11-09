@@ -13,8 +13,8 @@ MessageListeners = {
 				break;
 
 			case `showChatWindow`:
-				sendResponse({ status: "success" });
-
+				// sendResponse({ status: "success" });
+				// console.log('rendering box');
 				Render.ChatBox(false, request.data);
 				break;
 
@@ -98,7 +98,7 @@ MessageListeners = {
 			case `hideLauncherIcon`:
 				sendResponse({ status: `success` });
 
-				Render.hideLauncherIcon();				
+				Render.hideLauncherIcon();
 				break;
 
 			case `showLauncherIcon`:
@@ -109,7 +109,7 @@ MessageListeners = {
 
 			case `pageScore`:
 				sendResponse({ status: `success` });
-				
+
 				Render.showPageScore(request.data.pageScore);
 				break;
 
@@ -127,7 +127,7 @@ MessageListeners = {
 
 			case `samePageChatOpen`:
 				sendResponse({ status: "success" });
-				
+
 				const pageTitle = $('head title').html();
 				Render.ChatBox(true, { pageTitle: pageTitle });
 				break;
@@ -137,8 +137,9 @@ MessageListeners = {
 
 				Render.updatePageScore(request.data);
 				break;
-				
+
 			default:
+				console.log('default case.')
 				sendResponse({ status: "default case" });
 		}
 	},

@@ -9,12 +9,20 @@ $(document).ready(function() {
 	User.set({
 		username,
 		email: `${username}@wallet.com`,
-		name: `${username}@name`
+		name: `${username}@name`,
+		un: `${newData}@wallet`
 	});
-	chrome.runtime.sendMessage({action: `loginSuccessOpenChat`});
-	setTimeout(async () => {
-		console.log(await User.get());
-		// window.close();
+	// chrome.runtime.sendMessage({action: `loginSuccessOpenChat`});
+
+	let i = 5;
+	let littleTimer = setInterval(() => {
+		--i;
+		if (i < 1) {
+			clearInterval(littleTimer);
+			chrome.runtime.sendMessage({action: `loginSuccessOpenChat`});
+			window.close();
+		}
+		document.getElementsByClassName('litle-timer')[0].innerHTML = i;
 	}, 1000);
 });
 
