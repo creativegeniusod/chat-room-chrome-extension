@@ -70,6 +70,9 @@
     height: 45px;
     cursor: pointer;
 }
+.chat-room-open-icon img {
+	width: 40px;
+}
 
 .launcher-func-icons {
 	/*position: absolute;
