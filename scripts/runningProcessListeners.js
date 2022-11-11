@@ -39,6 +39,7 @@ Listeners = {
 	* Extension Icon onClick Listener.
 	*/
 	onExtensionIconClicked: async (tab) => {
+		console.log('on extension icon clicked.');
 		return;
 		const key = 'user';
 		const user = await User.get();
@@ -51,7 +52,6 @@ Listeners = {
 			open: true,
 			tab: tab.id
 		});
-
 
 
 		if ('username' in user) {
@@ -302,8 +302,6 @@ Listeners = {
 
 				case `extensionPageIconClicked`:
 					sendResponse({ status: "success" });
-					let a = await User.get();
-					console.log('user', a)
 					pageIconClicked(sender.tab, request.data);
 					break;
 
@@ -426,7 +424,7 @@ pageIconClicked = async (tab, msg_data) => {
 	const key = 'user';
 	const user = await User.get();
 
-	// console.log('user:', user);
+	console.log('user:', user);
 	// return;
 
 	/**
@@ -444,7 +442,7 @@ pageIconClicked = async (tab, msg_data) => {
 		const headers = {
 			"content-type": "application/json;charset=UTF-8"
 		};
-		console.log('user', user);
+
 		Request.post(`${db_app_url}api/v1/search/user`, JSON.stringify({username: user.username}), headers)
 		.then( (data) => {
 			/** Show welcome window. **/
@@ -456,6 +454,7 @@ pageIconClicked = async (tab, msg_data) => {
 			});
 		})
 		.catch(error => {
+			console.log('exception in pageIconClicked() ', error.responseJSON);
 			User.set();
 			chrome.tabs.create({url: `${chrome.runtime.getURL('views/loginPage.html')}`});
 		});
@@ -472,13 +471,25 @@ pageIconClicked = async (tab, msg_data) => {
 */
 OpenAfterLogin = () => {
 	chrome.tabs.query({  active: true, currentWindow: true }, async (tabs) => {
+		console.log('tabs::', tabs);
 		const user = await User.get();
-		console.log('tid', tabs[0].id);
-		Message.sendToWebpage(tabs[0], {
-			"action": "showChatWindow",
-			"onSuccessAction": "ShowChatWindow",
-			"user": user
-		});
+		if (tabs.length > 0) {
+			Message.sendToWebpage(tabs[0], {
+				"action": "showChatWindow",
+				"onSuccessAction": "ShowChatWindow",
+				"user": user
+			});
+		} else {
+			chrome.tabs.query({  active: true, currentWindow: true }, async (ts) => {
+				if (tabs.length > 0) {
+					Message.sendToWebpage(tabs[0], {
+						"action": "showChatWindow",
+						"onSuccessAction": "ShowChatWindow",
+						"user": user
+					});
+				}
+			});
+		}
 	});
 };
 
